@@ -25,4 +25,5 @@
 #cmakedefine HAVE_SETRESUID
 #cmakedefine HAVE_SCANDIR_POSIX
 #cmakedefine HAVE_GROUP_MEMBER
+#cmakedefine HAVE_BACKTRACE
 #cmakedefine RSTUDIO_SERVER

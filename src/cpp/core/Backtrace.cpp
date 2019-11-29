@@ -16,7 +16,9 @@
 #include <core/Backtrace.hpp>
 #include <core/RegexUtils.hpp>
 
-#ifndef _WIN32
+#include "config.h"
+
+#ifdef HAVE_BACKTRACE
 # include <core/Algorithm.hpp>
 # include <iostream>
 # include <boost/regex.hpp>
@@ -32,7 +34,7 @@ std::string demangle(const std::string& name)
 {
    std::string result = name;
    
-#ifndef _WIN32
+#ifdef HAVE_BACKTRACE
    int status = -1;
    char* demangled = ::abi::__cxa_demangle(name.c_str(), nullptr, nullptr, &status);
    if (status == 0) {
@@ -46,7 +48,7 @@ std::string demangle(const std::string& name)
 
 void printBacktrace(std::ostream& os)
 {
-#ifndef _WIN32
+#ifdef HAVE_BACKTRACE
    
    os << "Backtrace (most recent calls first):" << std::endl << std::endl;
    
