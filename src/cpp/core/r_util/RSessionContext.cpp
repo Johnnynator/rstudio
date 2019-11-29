@@ -182,7 +182,7 @@ bool isSharedPath(const std::string& projectPath,
       if (st.st_gid == user.getGroupId())
          return false;
 
-#ifndef __APPLE__
+#ifdef HAVE_GROUP_MEMBER
       // not shared if we're in any of the groups that own the directory
       // (note that this checks supplementary group IDs only, so the check
       // against the primary group ID above is still required)
