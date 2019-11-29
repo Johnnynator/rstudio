@@ -22,7 +22,7 @@
 #endif
 
 #include <sys/stat.h>
-#include <sys/unistd.h>
+#include <unistd.h>
 
 #include <shared_core/Error.hpp>
 #include <shared_core/FilePath.hpp>
